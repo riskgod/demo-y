@@ -1,0 +1,22 @@
+version: '3'
+services:
+  postgres:
+   image: orchardup/postgresql
+   volumes:
+    - postgres-luna:/data/db
+   ports:
+     - 5432:5432
+   environment:
+     POSTGRESQL_USER: bruce
+     POSTGRESQL_PASS: 1qaz2wsx
+     POSTGRESQL_DB: sixue
+   networks:
+     - luna
+
+volumes:
+  postgres-luna:
+    external: true
+
+networks:
+  luna: # TODO: Consider renaming this network to describe its function as more services increase
+    external: false
